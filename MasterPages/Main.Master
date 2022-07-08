@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="MovieCenter.MasterPages.Main" %>
+
+<!DOCTYPE html>
+<html dir="auto">
+<head runat="server" dir="auto">
+    <title>MovieCenter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Images/cine.png">
+    <link href="../Styles/normalize.css" rel="stylesheet" />
+    <link href="../Styles/Styles.css" rel="stylesheet" />
+</head>
+<body>
+     <form id="form1" runat="server">
+    <header class="container">
+        <img class="img" src="../Images/cine.png" />
+
+        <div class="genericbox">
+            <div class="genericbox genericbox__subbox">
+                <asp:Label ID="LblUsuario" runat="server"></asp:Label>
+               
+                <asp:Button ID="BtnLogout" runat="server" class="button button--logout" OnClick="BtnLogout_Click" 
+                    Text="Cerrar Sesion" EnableTheming="true"> </asp:Button>             
+            </div>
+            <nav class="navbar">
+                <ul class="menu">
+                    <asp:HyperLink ID="HyCartelera" NavigateUrl="~/Pages/Peliculas.aspx" runat="server" 
+                        Text="Cartelera" CssClass="menu__item"/>
+                     <asp:HyperLink ID="HyUsuarios" NavigateUrl="~/Pages/Usuarios.aspx" runat="server" 
+                        Text="Usuarios" CssClass="menu__item" />
+                     <asp:HyperLink ID="HyRoles" NavigateUrl="~/Pages/Roles.aspx" runat="server" 
+                        Text="Roles" CssClass="menu__item table__item--hidden"/>
+                     <asp:HyperLink ID="HyClientes" NavigateUrl="~/Pages/Clientes.aspx" runat="server" 
+                        Text="Clientes" CssClass="menu__item"/>
+                     <asp:HyperLink ID="HyEntradas" NavigateUrl="~/Pages/Entradas.aspx" runat="server" 
+                        Text="Entradas" CssClass="menu__item"/>
+                     <asp:HyperLink ID="HyPromociones" NavigateUrl="~/Pages/Promociones.aspx" runat="server" 
+                        Text="Promociones" CssClass="menu__item"/>
+                      <asp:HyperLink ID="HyBonificaciones" NavigateUrl="~/Pages/Bonificaciones.aspx" runat="server" 
+                        Text="Bonificaciones" CssClass="menu__item"/>
+
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+
+    <main class="mantenimiento">
+        
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        
+
+    </main>
+
+    <footer class="container container__footer">
+
+        <div>
+            <img class="img" src="../Images/Logo-Castro-Carazo-RGB-uso-en-digital_Color.jpeg__1_-removebg-preview.png" />
+            <p>Programación 6</p>
+            <p>Profesor: JULIO CESAR CECILIANO GARRO</p>
+        </div>
+        <p class="container__footerbox">
+            Estudiantes:
+            <br />
+            Brian Alonso Quesada Aparicio
+            <br />
+            Katerine Pamela Rodríguez Ruíz
+        </p>
+
+        <asp:Label ID="LblTipoCambio" CssClass="container__footerbox" runat="server"></asp:Label>
+    </footer>
+         </form>
+
+</body>
+</html>
