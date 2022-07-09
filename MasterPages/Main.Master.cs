@@ -43,22 +43,17 @@ namespace MovieCenter.MasterPages
                 HyBonificaciones.Visible = false;
             }
 
-            try
-            {
-                cr.fi.bccr.gee.wsindicadoreseconomicos cliente = new cr.fi.bccr.gee.wsindicadoreseconomicos();
-                DataSet tipoCambio = cliente.ObtenerIndicadoresEconomicos("317", DateTime.Now.ToString("dd/MM/yyyy"),
-                DateTime.Now.ToString("dd/MM/yyyy"), "Brian", "N", "aparicio3099@gmail.com", "523MGMLA30");
-                decimal cambio = Math.Round(decimal.Parse(tipoCambio.Tables[0].Rows[0].ItemArray[2].ToString()), 2);
-                Session["tipo_Cambio"] = cambio;
+            //cr.fi.bccr.gee.wsindicadoreseconomicos cliente = new cr.fi.bccr.gee.wsindicadoreseconomicos();
+            //DataSet tipoCambio = cliente.ObtenerIndicadoresEconomicos("317", DateTime.Now.ToString("dd/MM/yyyy"),
+            //DateTime.Now.ToString("dd/MM/yyyy"), "Brian", "N", "aparicio3099@gmail.com", "523MGMLA30");
+            WebServiceBancoCentral.wsindicadoreseconomicosSoapClient WS = new WebServiceBancoCentral.wsindicadoreseconomicosSoapClient();
+
+            DataSet tipoCambio = WS.ObtenerIndicadoresEconomicos("317", DateTime.Now.ToString("dd/MM/yyyy"),
+            DateTime.Now.ToString("dd/MM/yyyy"), "Brian", "N", "aparicio3099@gmail.com", "523MGMLA30");
+
+            decimal cambio = Math.Round(decimal.Parse(tipoCambio.Tables[0].Rows[0].ItemArray[2].ToString()), 2);
+            Session["tipo_Cambio"] = cambio;
                 LblTipoCambio.Text = $"Tipo de cambio: {cambio}";
-
-            }
-            catch (Exception ex)
-            {
-                Mensaje(ex.Message);
-
-            }
-
 
         }
         public void Mensaje(String pMensaje)

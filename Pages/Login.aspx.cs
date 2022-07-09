@@ -42,11 +42,12 @@ namespace MovieCenter.Pages
                     Session["cliente"] = cliente;
                     Session["id_Usuario"] = cliente.UsuarioP.Id;
 
-                    Response.Redirect("Peliculas.aspx");
+                    Response.Redirect("~/Pages/Peliculas.aspx");
                 }
                 else
                 {
                     Mensaje("Nombre de usuario o clave no coinciden, por favor intentelo de nuevo.");
+                    //Mensaje(error);
                 }
             }
             else

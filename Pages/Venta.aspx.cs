@@ -208,7 +208,9 @@ namespace MovieCenter.Pages
                     Mensaje(e.Message);
 
                 }
-                Response.Redirect("Peliculas.aspx");
+                Response.Redirect("~/Pages/Peliculas.aspx", false);
+             
+                HttpContext.Current.ApplicationInstance.CompleteRequest();
 
             }
             else
